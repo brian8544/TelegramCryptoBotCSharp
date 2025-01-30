@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PublishSingleFile>true</PublishSingleFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<DebugSymbols>False</DebugSymbols>
+		<DebugType>None</DebugType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="OpenAI" Version="2.1.0" />
+		<PackageReference Include="Telegram.Bot" Version="22.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ContentWithTargetPath Include="src\Config.conf">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<TargetPath>Config.conf</TargetPath>
+		</ContentWithTargetPath>
+		<None Include="src\Config.conf" />
+	</ItemGroup>
+
+</Project>
